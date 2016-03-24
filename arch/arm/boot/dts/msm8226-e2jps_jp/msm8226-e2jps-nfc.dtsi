@@ -1,0 +1,46 @@
+/* Copyright (c) 2012, Code Aurora Forum. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+/* LGE_CHANGE, [NFC][sungwook.ahn@lge.com], NFC Bring up */
+&soc {
+    i2c@f9928000 {
+        bcm2079x@76 {
+            compatible = "bcm,bcm2079x";
+            status = "ok";
+            revision = "rev_a...rev_e";
+            reg = <0x76>;
+            interrupt-parent = <&msmgpio>;
+            interrupts = <21 0x2>;
+            bcm,gpio_sda = <&msmgpio 22 0x00>;
+            bcm,gpio_scl = <&msmgpio 23 0x00>;
+            bcm,gpio_ven = <&msmgpio 20 0x00>;
+            bcm,gpio_irq = <&msmgpio 21 0x00>;
+            bcm,gpio_mode = <&msmgpio 118 0x00>;
+            bcm,i2c-pull-up = <1>;
+        };
+
+        bcm2079x_rev10@76 {
+            compatible = "bcm,bcm2079x";
+            status = "ok";
+            revision = "rev_10...";
+            reg = <0x76>;
+            interrupt-parent = <&msmgpio>;
+            interrupts = <1 0x2>;
+            bcm,gpio_sda = <&msmgpio 22 0x00>;
+            bcm,gpio_scl = <&msmgpio 23 0x00>;
+            bcm,gpio_ven = <&msmgpio 20 0x00>;
+            bcm,gpio_irq = <&msmgpio 1 0x00>;
+            bcm,gpio_mode = <&msmgpio 118 0x00>;
+            bcm,i2c-pull-up = <1>;
+        };
+    };
+};

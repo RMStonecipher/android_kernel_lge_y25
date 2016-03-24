@@ -1,0 +1,113 @@
+/* Copyright (c) 2013, Code Aurora Forum. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+
+&mdss_mdp {
+	qcom,mdss-pref-prim-intf = "dsi";
+};
+
+&mdss_mdp {
+	dsi_tianma_y25_hvga_vid: qcom,dsi_v2_tianma_ILI9488_y25_hvga_vid {
+		qcom,mdss-dsi-panel-name = "TIANMA hvga ILI9488 video mode dsi panel";
+		qcom,mdss-dsi-panel-controller = <&mdss_dsi0>;
+		qcom,mdss-dsi-panel-type = "dsi_video_mode";
+		qcom,mdss-dsi-panel-destination = "display_1";
+		qcom,mdss-pan-physical-width-dimension = <49>;
+		qcom,mdss-pan-physical-height-dimension = <73>;
+		qcom,mdss-dsi-panel-width = <320>;
+		qcom,mdss-dsi-panel-height = <480>;
+		qcom,mdss-dsi-bpp = <24>;
+		qcom,mdss-dsi-h-back-porch = <14>;
+		qcom,mdss-dsi-h-pulse-width = <4>;
+		qcom,mdss-dsi-h-front-porch = <39>;
+		qcom,mdss-dsi-h-sync-skew = <0>;
+		qcom,mdss-dsi-v-back-porch = <12>;
+		qcom,mdss-dsi-v-pulse-width = <4>;
+		qcom,mdss-dsi-v-front-porch = <12>;
+		qcom,mdss-dsi-underflow-color = <0xff>;
+		qcom,mdss-dsi-bl-min-level = <1>;
+		qcom,mdss-dsi-bl-max-level = <255>;
+		qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_wled";
+		qcom,mdss-dsi-h-sync-pulse = <0>;
+		qcom,mdss-dsi-traffic-mode = "non_burst_sync_event";
+		qcom,mdss-dsi-bllp-eof-power-mode;
+		qcom,mdss-dsi-bllp-power-mode;
+		qcom,mdss-dsi-te-dcs-command = <1>;
+		qcom,mdss-dsi-te-v-sync-rd-ptr-irq-line = <0x2c>;
+		qcom,mdss-dsi-te-v-sync-continues-lines = <0x3c>;
+		qcom,mdss-dsi-virtual-channel-id = <0>;
+		qcom,mdss-dsi-color-order = "rgb_swap_rgb";
+		qcom,mdss-dsi-lane-0-state;
+		qcom,mdss-dsi-lane-map = "lane_map_3012";
+		qcom,mdss-dsi-t-clk-pre = <0x28>;
+		qcom,mdss-dsi-t-clk-post = <0x20>;
+		qcom,mdss-dsi-stream = <0>;
+		qcom,mdss-dsi-mdp-trigger = "trigger_te";
+		qcom,mdss-dsi-dma-trigger = "trigger_sw";
+		qcom,mdss-dsi-panel-framerate = <60>;
+		qcom,mdss-dsi-panel-timings = [4F 17 0F 00 26 28 13 19 1A 03 04 00];
+		qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
+		qcom,mdss-dsi-off-command-state = "dsi_lp_mode";
+		qcom,mdss-dsi-reset-sequence = <1 1>, <0 10>, <1 120>;
+		qcom,cont-splash-enabled;
+		qcom,mdss-dsi-on-command = [
+				23 01 00 00 00 00 02
+				  C1 41
+				23 01 00 00 00 00 02
+				  C2 23
+				29 01 00 00 00 00 03
+				  C0 0F 0F
+				29 01 00 00 00 00 10
+				  E0 00 05 0D 0A 17 0B 3A AA 48 0C 11 0C 19 1D 0F
+				29 01 00 00 00 00 10
+				  E1 00 22 24 04 10 06 35 47 46 03 0B 05 31 39 0F
+				29 01 00 00 00 00 04
+				  C5 00 60 00
+				23 01 00 00 00 00 02
+				  B0 00
+				23 01 00 00 00 00 02
+				  B4 02
+				29 01 00 00 00 00 04
+				  B6 B2 22 02
+				23 01 00 00 00 00 02
+				  E9 00
+				29 01 00 00 00 00 05
+				  F7 A9 51 2C 82
+				15 01 00 00 00 00 02
+				  3A 55
+				39 01 00 00 00 00 02
+				  36 08
+				15 01 00 00 00 00 02
+				  51 FF
+				15 01 00 00 00 00 02
+				  53 2C
+				15 01 00 00 00 00 02
+				  55 90
+				05 01 00 00 78 00 01
+				  11
+				05 01 00 00 14 00 01
+				  29
+				];
+		qcom,mdss-dsi-off-command = [
+				05 01 00 00 32 00 01
+				  28
+				05 01 00 00 78 00 01
+				  10
+				15 01 00 00 00 00 02
+				  B7 08
+				];
+	};
+};
+
+&mdss_dsi0 {
+	qcom,dsi-pref-prim-pan = <&dsi_tianma_y25_hvga_vid>;
+};

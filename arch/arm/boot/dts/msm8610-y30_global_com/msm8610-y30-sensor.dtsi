@@ -1,0 +1,69 @@
+/* Copyright (c) 2012, Code Aurora Forum. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+&soc {
+	/* LGE Sensor Dummy */
+	lge,sensor {
+		status = "okay";
+		compatible = "lge,sensor";
+	};
+
+	/* I2C device */
+	i2c@f9925000 {
+		/* Acceleration sensor */
+				k2dh0@18 {
+					status = "okay";
+					reg = <0x18>;
+					compatible = "st,k2dh";
+					interrupt-parent = <&msmgpio>;
+					interrupts = <81 0x0>;
+					stm,sensor_vdd-supply = <&pm8110_l19>;
+					stm,sensor_vcc_i2c-supply = <&pm8110_l14>;
+				/*	pinctrl-names = "default", "sleep";*/
+				/*	pinctrl-0 = <&k2dh_int_active>;*/
+				/*	pinctrl-1 = <&k2dh_int_suspend>; */
+					st,gpio-int = <&msmgpio 81 0x0>;
+					g_range = <0>;
+					axis_map_x = <1>;
+					axis_map_y = <0>;
+					axis_map_z = <2>;
+					negate_x = <1>;
+					negate_y = <1>;
+					negate_z = <1>;
+					poll_interval = <5>;
+					min_interval = <0>;
+				};
+
+				k2hh@1e {
+					status = "okay";
+					reg = <0x1e>;
+					compatible = "st,k2hh";
+					interrupt-parent = <&msmgpio>;
+					interrupts = <81 0x0>;
+					stm,sensor_vdd-supply = <&pm8110_l19>;
+					stm,sensor_vcc_i2c-supply = <&pm8110_l14>;
+				/*	pinctrl-names = "default", "sleep";*/
+				/*	pinctrl-0 = <&k2dh_int_active>;*/
+				/*	pinctrl-1 = <&k2dh_int_suspend>; */
+					st,gpio-int = <&msmgpio 81 0x0>;
+					g_range = <0>;
+					axis_map_x = <0>;
+					axis_map_y = <1>;
+					axis_map_z = <2>;
+					negate_x = <1>;
+					negate_y = <1>;
+					negate_z = <1>;
+					poll_interval = <5>;
+					min_interval = <0>;
+			};
+	};
+};
